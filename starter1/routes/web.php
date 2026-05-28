@@ -7,6 +7,26 @@ Route::get('/', function () {
     return view('welcome');
 })->name('login');
 
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/admin/profile', function () {
+    return view('admin.profile');
+});
+
+Route::get('/home', function () {
+    return view('users.dashboard');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
 //Password reset route
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password/send-code', [ForgotPasswordController::class, 'sendResetCode'])->name('password.send-code');
