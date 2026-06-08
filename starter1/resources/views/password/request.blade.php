@@ -345,12 +345,12 @@
 
   <!-- Main card (reset password) with same design language -->
   <div class="card">
-    <!-- Logo & branding -->
+    <!-- Logo & branding 
     <div class="logo-wrap">
       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
       </svg>
-    </div>
+    </div>-->
 
     <h1 class="heading">Reset password</h1>
     <p class="subheading">Request a reset link for your Brainest EduCare account</p>

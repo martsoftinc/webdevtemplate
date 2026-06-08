@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class AdminMiddleware
 {
@@ -15,6 +16,6 @@ class AdminMiddleware
         }
 
         // Redirect or handle unauthorized access for non-admin users
-        return redirect('/')->with('error', 'Unauthorized access.');
+        return redirect('/login')->with('error', 'Unauthorized access.');
     }
 }

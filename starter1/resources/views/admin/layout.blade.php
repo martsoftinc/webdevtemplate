@@ -145,11 +145,11 @@
     </div>
 
     <div class="p-4 border-t border-slate-800">
-      <a href="<!--  route('logout')  -->" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-300 hover:bg-red-900/30 hover:text-red-300 transition-all">
+      <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-300 hover:bg-red-900/30 hover:text-red-300 transition-all">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
         Log Out
       </a>
-      <form id="logout-form" action=" route('logout') " method="POST" class="hidden">
+      <form id="logout-form" action="{{ route('logout')}}" method="POST" class="hidden">
         @csrf
       </form>
     </div>

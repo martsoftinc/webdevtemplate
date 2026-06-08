@@ -13,11 +13,31 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // Personal information
+            $table->string('full_name');
+            $table->string('first_name', 100)->nullable();
+            $table->string('last_name', 100)->nullable();
+            $table->string('nationality', 100);
+            $table->string('region', 100);          // Ghana region
+            $table->string('role')->default('user');
+            // Contact details
+            $table->string('phone', 20)->unique();
+            
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            // Email verification code
+            $table->string('email_verification_code', 6)->nullable();
+            $table->timestamp('email_verification_sent_at')->nullable();
+ 
+            // Security
             $table->string('password');
+            $table->boolean('two_factor_enabled')->default(true);
+            $table->string('two_factor_code', 6)->nullable();
+            $table->timestamp('two_factor_sent_at')->nullable();
+
+            
             $table->rememberToken();
+ 
             $table->timestamps();
         });
 

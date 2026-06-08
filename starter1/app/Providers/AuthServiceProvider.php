@@ -45,6 +45,14 @@ class AuthServiceProvider extends ServiceProvider
             );
         });
 
+         // Register the user guard
+        Auth::extend('verify', function ($app, $name, array $config) {
+            return new \App\Guards\ModeratorGuard(
+                Auth::createUserProvider($config['provider']),
+                $app->make('request')
+            );
+        });
+
         
 
         

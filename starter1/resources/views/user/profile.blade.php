@@ -1,5 +1,5 @@
 
-@extends('admin.layout')
+@extends('user.layout')
 
 @section('title', 'My Profile')
 
@@ -195,13 +195,13 @@
       </div>
       <div>
         <div class="font-syne font-bold text-slate-900 dark:text-white text-lg" id="avatarName">
-          {{ $user->full_name ?: 'Admin User' }}
+          {{ $user->full_name ?: ' User' }}
         </div>
-        <div class="text-sm text-slate-500 dark:text-slate-400">{{ $user->role ?? 'Admin' }}</div>
+        <div class="text-sm text-slate-500 dark:text-slate-400">{{ $user->role ?? 'User' }}</div>
       </div>
     </div>
 
-    <form action="{{ route('admin.profile.update') }}" method="POST">
+    <form action="{{ route('user.profile.update') }}" method="POST">
       @csrf
       @method('PUT')
 
@@ -294,7 +294,7 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.profile.password') }}" method="POST">
+    <form action="{{ route('user.profile.password') }}" method="POST">
       @csrf
       @method('PUT')
 
@@ -432,7 +432,7 @@
   function updateAvatar() {
     const fn  = firstEl?.value.trim() || '';
     const ln  = lastEl?.value.trim()  || '';
-    const full = [fn, ln].filter(Boolean).join(' ') || 'Admin User';
+    const full = [fn, ln].filter(Boolean).join(' ') || ' User';
     const initials = ((fn[0] || '') + (ln[0] || '')).toUpperCase() || 'AU';
     if (avatarName)     avatarName.textContent     = full;
     if (avatarInitials) avatarInitials.textContent = initials;
@@ -502,7 +502,7 @@
     track.style.pointerEvents = 'none';
 
     try {
-      const res = await fetch('{{ route("admin.profile.2fa") }}', {
+      const res = await fetch('{{ route("user.profile.2fa") }}', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
